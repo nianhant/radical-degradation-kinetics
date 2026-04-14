@@ -1,10 +1,10 @@
 # Radical Degradation Kinetics
 
-Compact repository for studying the degradation of prominent pharmaceutical molecules in wastewater by radical species generated under oxidative electrochemical conditions.
+This repository collects the pieces of a computational workflow for studying radical-driven degradation of pharmaceuticals in wastewater.
 
-The computational goal is to generate intrinsic molecular descriptors, especially bond dissociation energies (BDEs) and frontier orbital properties such as HOMO energies, and relate them to experimentally observed degradation kinetics.
+The specific use case behind it is oxidative electrochemical treatment, where reactive radical species can attack drug-like molecules through hydrogen abstraction, addition, or other bond-breaking pathways. The main descriptors of interest here are bond dissociation energies (BDEs) and frontier orbital properties such as HOMO energies, with the longer-term goal of relating those intrinsic properties to observed degradation kinetics.
 
-The repository includes:
+At the moment the repository is set up to handle:
 
 - molecule retrieval and standardization with RDKit
 - homolytic bond fragmentation with ALFABET or an RDKit fallback
@@ -14,14 +14,15 @@ The repository includes:
 - a lightweight demo pipeline
 - simple tests for core workflow utilities
 
-## Why this repo exists
+## Project focus
 
-This repository is designed as a compact, readable example for a job application. It emphasizes:
+The code is intentionally small, but it reflects the parts of the workflow that matter most in practice:
 
 - practical cheminformatics with RDKit
-- workflow engineering for quantum chemistry
-- clean, modular Python code
-- simple testing and reproducibility
+- fragment generation for BDE calculations
+- structure generation before DFT
+- lightweight job preparation for ORCA
+- optional ML pre-relaxation before quantum chemistry
 
 ## Repository layout
 
@@ -63,13 +64,13 @@ Optional extras:
 
 ## Demo
 
-Run the example pipeline:
+Run the example pipeline on a small set of wastewater-relevant compounds:
 
 ```bash
 python demo/demo_pipeline.py
 ```
 
-Example ML potential benchmark:
+Run the ML potential benchmark:
 
 ```bash
 python demo/benchmark_ml_potentials.py
@@ -87,13 +88,13 @@ demo/output/
 
 - standardizes SMILES with RDKit
 - optionally resolves molecule names to isomeric SMILES using PubChem
-- creates a small molecule table ready for downstream processing
+- builds a small molecule table for downstream calculations
 
 ### `fragments.py`
 
 - wraps ALFABET prediction if available
 - provides an RDKit fallback that enumerates single-bond homolytic cleavage candidates
-- returns a fragment table that can be used for BDE-oriented analysis
+- returns a fragment table for BDE-oriented analysis
 
 ### `preopt.py`
 
@@ -106,7 +107,7 @@ demo/output/
 
 - compares optional ML calculators on the same geometry
 - records energy, max-force, timing, and status
-- helps decide which pre-relaxation backend is most practical before DFT
+- helps decide which backend is most practical before DFT
 
 ### `dft.py`
 
@@ -124,6 +125,12 @@ demo/output/
 6. Write ORCA inputs and submit DFT jobs for descriptors such as BDE and HOMO.
 7. Correlate computed intrinsic properties with observed degradation kinetics in a downstream analysis step.
 
+## Current scope and limitations
+
+- The fallback RDKit fragmentation code is only a lightweight stand-in for a production BDE workflow.
+- The repository does not yet include output parsing or the final regression analysis against kinetics.
+- The ORCA helper is intentionally simple and meant to be adapted to a local cluster environment.
+
 ## Testing
 
 ```bash
@@ -134,7 +141,6 @@ The tests intentionally cover only lightweight logic so they can run quickly in 
 
 ## Notes
 
-- The ALFABET and PubChem integrations are optional by design.
-- The UMA, MACE, and ORB integrations are optional by design.
-- The fallback fragment enumeration is not a replacement for a production BDE model; it exists to keep the repository self-contained.
-- The DFT helper targets ORCA because it is easy to demonstrate in a small example repository.
+- The ALFABET, PubChem, UMA, MACE, and ORB integrations are optional by design.
+- The fallback fragmentation code is there to keep the repository runnable without a full ML stack.
+- The DFT helper targets ORCA because that is the code used in the accompanying workflow.

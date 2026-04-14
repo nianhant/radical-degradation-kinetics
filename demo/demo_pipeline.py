@@ -17,7 +17,7 @@ def main() -> None:
 
     input_df = pd.read_csv(here / "sample_molecules.csv")
     molecule_table = build_molecule_table(input_df.to_dict(orient="records"))
-    molecule_table.to_csv(output_dir / "molecules_standardized.csv", index=False)
+    molecule_table.to_csv(output_dir / "molecule_table.csv", index=False)
 
     fragment_tables = []
     for _, row in molecule_table.iterrows():
@@ -36,7 +36,7 @@ def main() -> None:
     pd.concat(fragment_tables, ignore_index=True).to_csv(
         output_dir / "fragment_manifest.csv", index=False
     )
-    print(f"Demo outputs written to {output_dir}")
+    print(f"Wrote demo outputs to {output_dir}")
 
 
 if __name__ == "__main__":

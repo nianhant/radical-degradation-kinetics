@@ -1,3 +1,4 @@
 name,smiles
 acetaminophen,CC(=O)NC1=CC=C(C=C1)O
-ibuprofen,CC(C)CC1=CC=C(C=C1)C(C)C(=O)O
+diclofenac,O=C(O)Cc1ccccc1Nc1c(Cl)cccc1Cl
+sulfamethoxazole,Cc1cc(NS(=O)(=O)c2ccc(N)cc2)no1
