@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.log
+demo/output/
+*.xyz
+*.inp
+slurm-*.out
+*.traj
