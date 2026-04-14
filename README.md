@@ -16,14 +16,9 @@ At the moment the repository is set up to handle:
 
 ## Project focus
 
-The code is intentionally small, but it reflects the parts of the workflow that matter most in practice:
-
-- practical cheminformatics with RDKit
 - fragment generation for BDE calculations
 - structure generation before DFT
-- lightweight job preparation for ORCA
-- optional ML pre-relaxation before quantum chemistry
-
+- optional ML pre-relaxation before DFT
 ## Repository layout
 
 ```text
@@ -93,7 +88,6 @@ demo/output/
 ### `fragments.py`
 
 - wraps ALFABET prediction if available
-- provides an RDKit fallback that enumerates single-bond homolytic cleavage candidates
 - returns a fragment table for BDE-oriented analysis
 
 ### `preopt.py`
@@ -107,7 +101,6 @@ demo/output/
 
 - compares optional ML calculators on the same geometry
 - records energy, max-force, timing, and status
-- helps decide which backend is most practical before DFT
 
 ### `dft.py`
 
@@ -127,7 +120,7 @@ demo/output/
 
 ## Current scope and limitations
 
-- The fallback RDKit fragmentation code is only a lightweight stand-in for a production BDE workflow.
+<!-- - The fallback RDKit fragmentation code is only a lightweight stand-in for a production BDE workflow. -->
 - The repository does not yet include output parsing or the final regression analysis against kinetics.
 - The ORCA helper is intentionally simple and meant to be adapted to a local cluster environment.
 
