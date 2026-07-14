@@ -202,16 +202,6 @@ demo/output/
 8. Train and evaluate predictive models against observed degradation kinetics.
 9. Use prediction uncertainty and feature importance to prioritize experiments, DFT refinement, or NEB calculations.
 
-## Interview relevance
-
-This project is structured as a compact analog of an AI-enabled pharmaceutical predictive platform:
-
-- **Data ingestion and feature engineering:** molecule tables, computed chemistry descriptors, radical-site counts, and assay-style outcomes.
-- **Model training and benchmarking:** transparent bootstrap ridge regression plus optional random-forest comparison.
-- **Uncertainty and robustness:** bootstrap prediction intervals, held-out metrics, and coverage estimates for data-sparse settings.
-- **Interpretability:** descriptor-level feature rankings that can be mapped back to mechanistic chemistry.
-- **Decision support:** ranked follow-up tables that translate model uncertainty into experimental or simulation next steps.
-
 ## Continuing the study without large experimental data
 
 The recommended structure is to keep real and synthetic evidence separate:
@@ -239,9 +229,3 @@ pytest
 ```
 
 The tests intentionally cover only lightweight logic so they can run quickly in a clean environment.
-
-## Notes
-
-- The ALFABET, PubChem, UMA, MACE, and ORB integrations are optional by design.
-- The fallback fragmentation code is there to keep the repository runnable without a full ML stack.
-- The DFT helper targets ORCA because that is the code used in the accompanying workflow.

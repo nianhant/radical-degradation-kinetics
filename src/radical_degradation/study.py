@@ -23,7 +23,7 @@ def load_compound_inputs(path: str | Path) -> pd.DataFrame:
     if not required_any.intersection(frame.columns):
         raise ValueError("Input table must include at least one of: name, smiles")
 
-    for column in ["name", "smiles", "source", "notes"]:
+    for column in ["name", "smiles", "source"]:
         if column not in frame.columns:
             frame[column] = ""
         frame[column] = frame[column].fillna("").astype(str).str.strip()
@@ -101,7 +101,7 @@ def clean_descriptor_table(
     numeric_candidates = [
         col
         for col in clean.columns
-        if col not in {id_column, "canonical_smiles", "source", "notes", "regime", "rate_source"}
+        if col not in {id_column, "canonical_smiles", "source", "regime", "rate_source"}
     ]
     for col in numeric_candidates:
         converted = pd.to_numeric(clean[col], errors="coerce")
