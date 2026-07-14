@@ -1,0 +1,17 @@
+name,smiles,source,notes
+acetaminophen,CC(=O)NC1=CC=C(C=C1)O,curated_demo,wastewater-relevant analgesic
+diclofenac,O=C(O)Cc1ccccc1Nc1c(Cl)cccc1Cl,curated_demo,wastewater-relevant anti-inflammatory
+sulfamethoxazole,Cc1cc(NS(=O)(=O)c2ccc(N)cc2)no1,curated_demo,sulfonamide antibiotic
+carbamazepine,NC(=O)N1c2ccccc2C=Cc2ccccc21,curated_demo,persistent anticonvulsant
+naproxen,COc1ccc2cc(C(C)C(=O)O)ccc2c1,curated_demo,anti-inflammatory
+ibuprofen,CC(C)Cc1ccc(C(C)C(=O)O)cc1,curated_demo,anti-inflammatory
+atenolol,CC(C)NCC(O)COc1ccc(CC(N)=O)cc1,curated_demo,beta blocker
+propranolol,CC(C)NCC(O)COc1cccc2ccccc12,curated_demo,beta blocker
+metoprolol,COCCc1ccc(OCC(O)CNC(C)C)cc1,curated_demo,beta blocker
+venlafaxine,COc1ccc(C(CN(C)C)C2(O)CCCCC2)cc1,curated_demo,antidepressant
+trimethoprim,COc1cc(Cc2cnc(N)nc2N)cc(OC)c1OC,curated_demo,antibiotic
+ciprofloxacin,O=C(O)c1cn(C2CC2)c2cc(N3CCNCC3)c(F)cc2c1=O,curated_demo,fluoroquinolone antibiotic
+lidocaine,CCN(CC)CC(=O)Nc1c(C)cccc1C,curated_demo,local anesthetic
+benzotriazole,c1ccc2[nH]nnc2c1,curated_demo,industrial micropollutant
+gemfibrozil,CC(C)(C)c1ccc(OCCCC(C)(C)C(=O)O)cc1,curated_demo,lipid regulator
+warfarin,CC(=O)CC(c1ccccc1)c1c(O)c2ccccc2oc1=O,curated_demo,anticoagulant

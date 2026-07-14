@@ -21,6 +21,9 @@ chem = [
 ml = [
   "ase",
 ]
+predictive = [
+  "scikit-learn>=1.4",
+]
 dev = [
   "pytest>=8.0",
 ]
